@@ -1,0 +1,114 @@
+[
+  {
+    "remarks": "虎斑：局域网域名直连",
+    "outboundTag": "direct",
+    "domain": [
+      "full:localhost",
+      "domain:local",
+      "geosite:private"
+    ]
+  },
+  {
+    "remarks": "虎斑：AI 与流媒体代理",
+    "outboundTag": "proxy",
+    "domain": [
+      "domain:chatgpt.com",
+      "domain:openai.com",
+      "domain:oaistatic.com",
+      "domain:oaiusercontent.com",
+      "domain:claude.ai",
+      "domain:claude.com",
+      "domain:claudeusercontent.com",
+      "domain:anthropic.com",
+      "full:gemini.google.com",
+      "domain:youtube.com",
+      "domain:youtu.be",
+      "domain:googlevideo.com",
+      "domain:netflix.com",
+      "domain:nflxvideo.net"
+    ]
+  },
+  {
+    "remarks": "虎斑：国内平台与 .cn 直连",
+    "outboundTag": "direct",
+    "domain": [
+      "domain:qq.com",
+      "domain:wechat.com",
+      "domain:weixinbridge.com",
+      "domain:servicewechat.com",
+      "domain:weibo.com",
+      "domain:weibo.cn",
+      "domain:t.cn",
+      "domain:xiaohongshu.com",
+      "domain:rednote.com",
+      "domain:xhslink.com",
+      "domain:xhscdn.com",
+      "domain:xhscdn.net",
+      "domain:rednotecdn.com",
+      "domain:douyin.com",
+      "domain:iesdouyin.com",
+      "domain:douyinvod.com",
+      "domain:douyinpic.com",
+      "domain:idouyinpic.com",
+      "domain:kuaishou.com",
+      "domain:kuaishouapp.com",
+      "domain:gifshow.com",
+      "domain:ksapisrv.com",
+      "domain:yximgs.com",
+      "domain:toutiao.com",
+      "domain:ixigua.com",
+      "domain:bilibili.com",
+      "domain:b23.tv",
+      "domain:hdslb.com",
+      "domain:bilivideo.com",
+      "domain:bilivideo.net",
+      "domain:biliapi.net",
+      "domain:acfun.cn",
+      "domain:zhihu.com",
+      "domain:zhimg.com",
+      "domain:douban.com",
+      "domain:doubanio.com",
+      "domain:tieba.baidu.com",
+      "domain:tiebaimg.com",
+      "domain:hupu.com",
+      "domain:okjike.com",
+      "domain:douyu.com",
+      "domain:douyu.tv",
+      "domain:huya.com",
+      "domain:msstatic.com",
+      "domain:yy.com",
+      "domain:yystatic.com",
+      "domain:soulapp.cn",
+      "domain:immomo.com",
+      "domain:momocdn.com",
+      "domain:tantanapp.com",
+      "domain:taobao.com",
+      "domain:tmall.com",
+      "domain:jd.com",
+      "domain:360buyimg.com",
+      "domain:cn"
+    ]
+  },
+  {
+    "remarks": "绕过局域网IP",
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private",
+      "127.0.0.0/8",
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16",
+      "169.254.0.0/16",
+      "::1/128",
+      "fc00::/7",
+      "fe80::/10"
+    ]
+  },
+  {
+    "remarks": "绕过中国IP",
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:cn"
+    ]
+  }
+]
