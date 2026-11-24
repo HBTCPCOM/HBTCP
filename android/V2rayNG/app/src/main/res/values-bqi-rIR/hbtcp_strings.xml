@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hbtcp_wordmark">HBTCP</string>
+    <string name="hbtcp_ready">Ready to go</string>
+    <string name="hbtcp_departed">Connected</string>
+    <string name="hbtcp_ready_hint">Import a subscription, then tap Start.</string>
+    <string name="hbtcp_connected_hint">Your connection is running.</string>
+    <string name="hbtcp_connected">Connected</string>
+    <string name="hbtcp_disconnected">Offline</string>
+    <string name="hbtcp_mode">Proxy mode</string>
+    <string name="hbtcp_rule">Rules</string>
+    <string name="hbtcp_global">Global</string>
+    <string name="hbtcp_rule_hint">Connect directly in China; proxy other traffic.</string>
+    <string name="hbtcp_global_hint">Proxy all traffic except local networks.</string>
+    <string name="hbtcp_subscription">Subscription</string>
+    <string name="hbtcp_import_link">Import subscription link</string>
+    <string name="hbtcp_import_methods">Link / QR code / Clipboard</string>
+    <string name="hbtcp_import_options">Choose an import method</string>
+    <string name="hbtcp_imported">Subscription imported</string>
+    <string name="hbtcp_node_count">%1$d nodes · tap to manage</string>
+    <string name="hbtcp_scan">Scan QR code</string>
+    <string name="hbtcp_clipboard">Import from clipboard</string>
+    <string name="hbtcp_node">Connection node</string>
+    <string name="hbtcp_select_after_import">Select after importing</string>
+    <string name="hbtcp_switch_hint">Switch nodes directly. No need to stop and start again.</string>
+    <string name="hbtcp_start">Start</string>
+    <string name="hbtcp_disconnect">Disconnect</string>
+    <string name="hbtcp_importing">Importing…</string>
+    <string name="hbtcp_subscription_url">Subscription link or share link</string>
+    <string name="hbtcp_import_help">Subscription URLs refresh when you open the app. Individual node links must be imported again.</string>
+    <string name="hbtcp_import">Import</string>
+    <string name="hbtcp_cancel">Cancel</string>
+    <string name="hbtcp_close">Close</string>
+    <string name="hbtcp_select_node">Select a node</string>
+    <string name="hbtcp_import_empty">Paste a subscription or share link first.</string>
+    <string name="hbtcp_import_invalid">Enter a complete subscription URL with a valid host.</string>
+    <string name="hbtcp_import_failed">No nodes imported. Check the link, network, or subscription format and try again.</string>
+    <string name="hbtcp_mode_failed">Could not apply the mode. Try again.</string>
+    <string name="hbtcp_more">More options</string>
+    <string name="hbtcp_refresh">Refresh subscriptions</string>
+    <string name="hbtcp_manage_subscriptions">Manage subscriptions</string>
+    <string name="hbtcp_logs">Connection logs</string>
+    <string name="hbtcp_about">About HBTCP</string>
+    <string name="hbtcp_launcher_name">HBTCP</string>
+    <string name="hbtcp_customer_service">Telegram support</string>
+    <string name="hbtcp_customer_service_handle">\@HBTCP_bot</string>
+</resources>

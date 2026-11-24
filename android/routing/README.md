@@ -1,6 +1,6 @@
 # 安卓规则同步与验证
 
-`hbtcp-shadowrocket.conf` 是本次网站配置快照。`[Rule]` 中 `DOMAIN` 映射 `full:`，`DOMAIN-SUFFIX` 映射 `domain:`；相同出站的连续域名合并到安卓的 `custom_routing_white`，保持条目次序。仅局域网 IP 移到显式域名之后，确保嗅探出 Claude 等域名时，明确代理规则优先于大陆 IP 兜底。最终代理依赖第一条出站，不放无条件规则提前吞掉 `IPIfNonMatch` 的第二轮匹配。旧版完整预设保存在 `huban_routing_white_v1`，用于安全识别可升级的默认值。
+`hbtcp-shadowrocket.conf` 是本次网站配置快照。`[Rule]` 中 `DOMAIN` 映射 `full:`，`DOMAIN-SUFFIX` 映射 `domain:`；相同出站的连续域名合并到安卓的 `custom_routing_white`，保持条目次序。仅局域网 IP 移到显式域名之后，确保嗅探出 Claude 等域名时，明确代理规则优先于大陆 IP 兜底。最终代理依赖第一条出站，不放无条件规则提前吞掉 `IPIfNonMatch` 的第二轮匹配。旧版完整预设保存在 `hbtcp_routing_white_v1`，用于安全识别可升级的默认值。
 
 重新验证：
 
@@ -9,7 +9,7 @@
 ./gradlew :app:testPlaystoreDebugUnitTest :app:compilePlaystoreDebugKotlin :app:assemblePlaystoreDebug
 
 # 在仓库根目录构建同发布签名的安装包与独立测试 APK。
-bash scripts/build-release.sh -PhubanTestBuildType=release :app:assemblePlaystoreReleaseAndroidTest :app:lintPlaystoreRelease
+bash scripts/build-release.sh -PhbtcpTestBuildType=release :app:assemblePlaystoreReleaseAndroidTest :app:lintPlaystoreRelease
 python3 scripts/qa-routing-upgrade.py V2rayNG/app/build/outputs/apk/androidTest/playstore/release/app-playstore-release-androidTest.apk
 ```
 

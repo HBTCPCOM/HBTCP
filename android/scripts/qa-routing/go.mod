@@ -1,4 +1,4 @@
-module huban.local/routing-qa
+module hbtcp.local/routing-qa
 
 go 1.27
 

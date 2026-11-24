@@ -118,14 +118,14 @@ class MainRepository(
 
     override fun setSelectServer(guid: String) = MmkvManager.setSelectServer(guid)
 
-    override fun getHubanGlobalMode(): Boolean =
-        MmkvManager.decodeSettingsBool(HUBAN_GLOBAL_MODE, false)
+    override fun getHbtcpGlobalMode(): Boolean =
+        MmkvManager.decodeSettingsBool(HBTCP_GLOBAL_MODE, false)
 
-    override fun setHubanGlobalMode(enabled: Boolean) {
+    override fun setHbtcpGlobalMode(enabled: Boolean) {
         SettingsManager.resetRoutingRulesetsFromPresets(
             localizedContext, if (enabled) RoutingType.GLOBAL else RoutingType.WHITE
         )
-        MmkvManager.encodeSettings(HUBAN_GLOBAL_MODE, enabled)
+        MmkvManager.encodeSettings(HBTCP_GLOBAL_MODE, enabled)
         // The existing daemon command reloads an active connection and never starts an idle VPN.
         LauncherManager.restartService(app)
     }
@@ -257,11 +257,11 @@ class MainRepository(
     }
 
     override fun initAssets() {
-        SettingsManager.updateHubanRoutingDefaults(app)
+        SettingsManager.updateHbtcpRoutingDefaults(app)
         SettingsManager.initAssets(app, app.assets)
     }
 
     private companion object {
-        const val HUBAN_GLOBAL_MODE = "huban_global_mode_v1"
+        const val HBTCP_GLOBAL_MODE = "hbtcp_global_mode_v1"
     }
 }

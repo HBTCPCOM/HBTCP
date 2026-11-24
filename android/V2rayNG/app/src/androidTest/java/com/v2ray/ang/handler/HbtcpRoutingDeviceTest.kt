@@ -15,14 +15,14 @@ import java.io.File
 
 /** Only install on the dedicated QA emulator: seed methods replace its synthetic routing fixture. */
 @RunWith(AndroidJUnit4::class)
-class HubanRoutingDeviceTest {
+class HbtcpRoutingDeviceTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
     private val context = instrumentation.targetContext
-    private val globalKey = "huban_global_mode_v1"
-    private val testGuid = "huban-routing-qa"
+    private val globalKey = "hbtcp_global_mode_v1"
+    private val testGuid = "hbtcp-routing-qa"
     private val out get() = File(context.getExternalFilesDir(null), "routing-qa").apply { mkdirs() }
     private fun legacy(): MutableList<RulesetItem> = JsonUtil.fromJson(
-        instrumentation.context.assets.open("huban_routing_white_v1").bufferedReader().use { it.readText() },
+        instrumentation.context.assets.open("hbtcp_routing_white_v1").bufferedReader().use { it.readText() },
         Array<RulesetItem>::class.java
     )!!.toMutableList()
     private fun bundled(name: String) = context.assets.open(name).bufferedReader().use { it.readText() }
@@ -46,21 +46,21 @@ class HubanRoutingDeviceTest {
     )
 
     @Test fun verifyDefaultUpgrade() {
-        SettingsManager.updateHubanRoutingDefaults(context)
+        SettingsManager.updateHbtcpRoutingDefaults(context)
         SettingsManager.initAssets(context, context.assets)
         val expected = JsonUtil.fromJson(bundled("custom_routing_white"), Array<RulesetItem>::class.java)!!.toList()
         assertEquals(expected, MmkvManager.decodeRoutingRulesets())
         assertEquals("IPIfNonMatch", MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_DOMAIN_STRATEGY))
         assertFalse(MmkvManager.decodeSettingsBool(globalKey, false))
         exportConfig("split")
-        SettingsManager.updateHubanRoutingDefaults(context)
+        SettingsManager.updateHbtcpRoutingDefaults(context)
         assertEquals(expected, MmkvManager.decodeRoutingRulesets())
-        File(out, "default-upgrade.txt").writeText("1.0.0 default -> 1.0.1 updated; idempotent; domainStrategy=IPIfNonMatch\n")
+        File(out, "default-upgrade.txt").writeText("Preceding routing fixture -> current defaults; idempotent; domainStrategy=IPIfNonMatch\n")
     }
 
     @Test fun verifyCustomPreserved() {
         val before = MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_RULESET)
-        SettingsManager.updateHubanRoutingDefaults(context)
+        SettingsManager.updateHbtcpRoutingDefaults(context)
         SettingsManager.initAssets(context, context.assets)
         assertEquals(custom(), MmkvManager.decodeRoutingRulesets())
         assertEquals(before, MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_RULESET))
@@ -71,7 +71,7 @@ class HubanRoutingDeviceTest {
 
     @Test fun verifyGlobalPreserved() {
         val before = MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_RULESET)
-        SettingsManager.updateHubanRoutingDefaults(context)
+        SettingsManager.updateHbtcpRoutingDefaults(context)
         SettingsManager.initAssets(context, context.assets)
         assertEquals(before, MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_RULESET))
         assertTrue(MmkvManager.decodeSettingsBool(globalKey, false))

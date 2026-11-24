@@ -17,8 +17,8 @@ interface MainDataSource : Closeable {
 
     fun getSelectServer(): String?
     fun setSelectServer(guid: String)
-    fun getHubanGlobalMode(): Boolean = false
-    fun setHubanGlobalMode(enabled: Boolean) {}
+    fun getHbtcpGlobalMode(): Boolean = false
+    fun setHbtcpGlobalMode(enabled: Boolean) {}
 
     fun getConfirmRemove(): Boolean
     fun getDoubleColumnDisplay(): Boolean

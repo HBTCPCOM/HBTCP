@@ -1,13 +1,12 @@
-HBTCP Android 1.0.3
+HBTCP Android 1.0.4
 
-- 分流 / 全局模式，一键连接与切换节点。
-- 支持订阅链接、扫码和剪贴板导入。
-- 打开 App 时刷新订阅，同步服务端节点变更。
-- 精简设置与关于页面，统一 HBTCP 品牌。
+- 源码与下载地址迁移到 HBTCPCOM/HBTCP。
+- 应用包名更新为 `com.hbtcp.client`，源码命名、资源与发布签名统一为 HBTCP。
+- 保留分流 / 全局、订阅导入、启动刷新及直接切换节点功能。
 
-一般用户下载 **HBTCP-Android.apk** 通用安装包即可。其他 APK 按设备处理器架构区分，功能相同。
+**本版作为独立新 App 安装，安装后请重新导入订阅。**
 
-可覆盖安装先前使用同一签名的 HBTCP 版本，保留订阅和节点设置。
+一般用户下载 **HBTCP-Android.apk** 通用版即可；其他安装包按设备架构区分。
 
 官网：https://hbtcp.com
 Telegram 客服：@HBTCP_bot

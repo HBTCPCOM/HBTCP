@@ -16,11 +16,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.huban.client"
+        applicationId = "com.hbtcp.client"
         minSdk = 24
         targetSdk = 37
-        versionCode = 4
-        versionName = "1.0.3"
+        versionCode = 5
+        versionName = "1.0.4"
 
         val abiFilterList = (properties["ABI_FILTERS"] as? String)?.split(';')
         splits {
@@ -44,10 +44,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    val hubanSigningFile = providers.environmentVariable("HUBAN_SIGNING_PROPERTIES").orNull?.let { File(it) }
-    if (hubanSigningFile?.isFile == true) {
-        val keys = Properties().apply { hubanSigningFile.inputStream().use { load(it) } }
-        signingConfigs.create("hubanRelease") {
+    val hbtcpSigningFile = providers.environmentVariable("HBTCP_SIGNING_PROPERTIES").orNull?.let { File(it) }
+    if (hbtcpSigningFile?.isFile == true) {
+        val keys = Properties().apply { hbtcpSigningFile.inputStream().use { load(it) } }
+        signingConfigs.create("hbtcpRelease") {
             storeFile = file(keys.getProperty("storeFile"))
             storePassword = keys.getProperty("storePassword")
             keyAlias = keys.getProperty("keyAlias")
@@ -57,7 +57,7 @@ android {
 
     buildTypes {
         release {
-            if (hubanSigningFile?.isFile == true) signingConfig = signingConfigs.getByName("hubanRelease")
+            if (hbtcpSigningFile?.isFile == true) signingConfig = signingConfigs.getByName("hbtcpRelease")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -168,7 +168,7 @@ android {
         }
     }
 
-    testBuildType = providers.gradleProperty("hubanTestBuildType").orElse("debug").get()
+    testBuildType = providers.gradleProperty("hbtcpTestBuildType").orElse("debug").get()
 
     testOptions {
         unitTests.isIncludeAndroidResources = true

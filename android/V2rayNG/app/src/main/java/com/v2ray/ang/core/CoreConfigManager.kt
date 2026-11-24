@@ -34,7 +34,7 @@ object CoreConfigManager {
      */
     fun getV2rayConfig(context: Context, guid: String): ConfigResult {
         try {
-            SettingsManager.updateHubanRoutingDefaults(context)
+            SettingsManager.updateHbtcpRoutingDefaults(context)
             val configContext = CoreConfigContextBuilder.build(context, guid)
                 ?: return ConfigResult(
                     status = false,
@@ -62,7 +62,7 @@ object CoreConfigManager {
      */
     fun getV2rayConfig4Speedtest(context: Context, guid: String): ConfigResult {
         try {
-            SettingsManager.updateHubanRoutingDefaults(context)
+            SettingsManager.updateHbtcpRoutingDefaults(context)
             val configContext = CoreConfigContextBuilder.build(context, guid)
                 ?: return ConfigResult(
                     status = false,

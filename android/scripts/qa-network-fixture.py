@@ -50,7 +50,7 @@ class Socks(socketserver.BaseRequestHandler):
                 if not chunk:
                     return
                 request += chunk
-            marker = f"HUBAN_VPN_OK_NODE_{self.server.marker}\n".encode()
+            marker = f"HBTCP_VPN_OK_NODE_{self.server.marker}\n".encode()
             sock.sendall(b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nConnection: close\r\nContent-Length: " + str(len(marker)).encode() + b"\r\n\r\n" + marker)
             with lock:
                 records.append({"node": self.server.marker, "host": host, "port": port})
@@ -69,7 +69,7 @@ class Subscription(BaseHTTPRequestHandler):
             payload = base64.b64encode(nodes.encode())
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
-            self.send_header("profile-title", "Huban QA")
+            self.send_header("profile-title", "Hbtcp QA")
             self.send_header("Content-Length", str(len(payload)))
             self.end_headers()
             self.wfile.write(payload)

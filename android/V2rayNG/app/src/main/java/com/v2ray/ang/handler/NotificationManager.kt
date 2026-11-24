@@ -179,7 +179,7 @@ object NotificationManager {
      * @param directTraffic The direct traffic.
      */
     private fun updateNotification(contentText: String?, proxyTraffic: Long, directTraffic: Long) {
-        // Huban keeps only Android's required foreground service notification; optional traffic alerts are disabled.
+        // Hbtcp keeps only Android's required foreground service notification; optional traffic alerts are disabled.
     }
 
     /**

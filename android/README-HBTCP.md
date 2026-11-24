@@ -2,7 +2,11 @@
 
 HBTCP 安卓客户端，支持 Android 7.0 及以上版本。
 
-[下载 APK](https://github.com/HUBANTCP/HBTCP/releases/latest/download/HBTCP-Android.apk) · [版本记录](https://github.com/HUBANTCP/HBTCP/releases) · [官网](https://hbtcp.com)
+[下载 APK](https://github.com/HBTCPCOM/HBTCP/releases/latest/download/HBTCP-Android.apk) · [版本记录](https://github.com/HBTCPCOM/HBTCP/releases) · [官网](https://hbtcp.com)
+
+## 1.0.4 安装说明
+
+本版使用 `com.hbtcp.client` 新包名与 HBTCP 发布签名，作为独立 App 安装。首次安装后请重新导入订阅；后续 HBTCP 版本沿用这份签名。源码与版本下载已迁移到 `HBTCPCOM/HBTCP`。
 
 ## 功能
 
@@ -18,7 +22,7 @@ HBTCP 安卓客户端，支持 Android 7.0 及以上版本。
 
 ## 源码结构
 
-- `V2rayNG/`：Android 工程，首页为 `ui/main/HubanScreen.kt`。
+- `V2rayNG/`：Android 工程，首页为 `ui/main/HbtcpScreen.kt`。
 - `AndroidLibXrayLite/`、`hev-socks5-tunnel/`：固定版本的原生核心子模块。
 - `routing/`：内置分流规则及网站规则快照。
 - `branding/`：应用图标及授权说明。
@@ -37,7 +41,7 @@ bash scripts/build-release.sh
 
 安装包输出到 `dist/`。`bootstrap.py` 按固定版本获取并校验依赖，必要时从子模块编译 HEV。可通过 `ANDROID_HOME`、`NDK_HOME` 和 `JAVA_HOME` 指定工具路径。
 
-发布签名存放在仓库外；后续覆盖安装须使用同一份签名。可通过 `HUBAN_SIGNING_PROPERTIES` 指定已有签名配置，包含 `storeFile`、`storePassword`、`keyAlias`、`keyPassword`。
+发布签名存放在仓库外；后续覆盖安装须使用同一份签名。可通过 `HBTCP_SIGNING_PROPERTIES` 指定已有签名配置，包含 `storeFile`、`storePassword`、`keyAlias`、`keyPassword`。
 
 ## 分流规则
 

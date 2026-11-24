@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
-HUBAN_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+HBTCP_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 if [[ -z "${JAVA_HOME:-}" && -d /opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home ]]; then
   export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 fi
-export HUBAN_SIGNING_PROPERTIES="${HUBAN_SIGNING_PROPERTIES:-$HOME/.local/share/huban-android/signing/signing.properties}"
-if [[ ! -f "$HUBAN_SIGNING_PROPERTIES" ]]; then
-  echo "Missing local release signing configuration. See README-HUBAN.md."
+export HBTCP_SIGNING_PROPERTIES="${HBTCP_SIGNING_PROPERTIES:-$HOME/.local/share/hbtcp-android/signing/signing.properties}"
+if [[ ! -f "$HBTCP_SIGNING_PROPERTIES" ]]; then
+  echo "Missing local release signing configuration. See README-HBTCP.md."
   exit 1
 fi
-cd "$HUBAN_ROOT/V2rayNG"
+cd "$HBTCP_ROOT/V2rayNG"
 ./gradlew :app:assemblePlaystoreRelease "$@" --console=plain
-mkdir -p "$HUBAN_ROOT/dist"
-python3 - "$HUBAN_ROOT" <<'PY'
+mkdir -p "$HBTCP_ROOT/dist"
+python3 - "$HBTCP_ROOT" <<'PY'
 from pathlib import Path
-import hashlib, re, shutil, sys
+import hashlib, json, re, shutil, sys
 root = Path(sys.argv[1])
-for apk in sorted((root / 'V2rayNG/app/build/outputs/apk/playstore/release').glob('*.apk')):
+output_dir = root / 'V2rayNG/app/build/outputs/apk/playstore/release'
+metadata = json.loads((output_dir / 'output-metadata.json').read_text())
+for element in sorted(metadata['elements'], key=lambda item: item['outputFile']):
+    apk = output_dir / element['outputFile']
     match = re.fullmatch(r'v2rayNG_(.+)_(arm64-v8a|armeabi-v7a|x86_64|x86|universal)', apk.stem)
     if not match:
         raise SystemExit(f'Unexpected APK name: {apk.name}')

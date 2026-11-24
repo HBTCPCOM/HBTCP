@@ -92,7 +92,7 @@ class MainViewModel(
             selectedGuid = dataSource.getSelectServer(),
             confirmRemove = dataSource.getConfirmRemove(),
             doubleColumnDisplay = dataSource.getDoubleColumnDisplay(),
-            hubanGlobalMode = dataSource.getHubanGlobalMode(),
+            hbtcpGlobalMode = dataSource.getHbtcpGlobalMode(),
             searchQuery = savedStateHandle[SEARCH_QUERY_KEY] ?: ""
         )
     )
@@ -103,7 +103,7 @@ class MainViewModel(
 
     // ---------- Groups & cache ----------
     private val cacheMutex = Mutex()
-    private val hubanModeMutex = Mutex()
+    private val hbtcpModeMutex = Mutex()
     private val groupDataCache = mutableMapOf<String, List<ServersCache>>()
     private val groupUiFlows = ConcurrentHashMap<String, MutableStateFlow<ServerGroupUiState>>()
     private val groupServerFlows = ConcurrentHashMap<String, StateFlow<List<ServersCache>>>()
@@ -307,8 +307,8 @@ class MainViewModel(
             is MainAction.RemoveServer -> removeServerAndRefresh(action.guid)
             is MainAction.Search -> filterConfig(action.query)
             is MainAction.ImportBatchConfig -> importBatchConfig(action.configText)
-            is MainAction.SetHubanGlobalMode -> setHubanGlobalMode(action.enabled)
-            MainAction.DismissHubanImportError -> _uiState.update { it.copy(hubanImportError = null) }
+            is MainAction.SetHbtcpGlobalMode -> setHbtcpGlobalMode(action.enabled)
+            MainAction.DismissHbtcpImportError -> _uiState.update { it.copy(hbtcpImportError = null) }
             is MainAction.LocateHandled -> consumeLocateTarget(action.target)
             is MainAction.MoveServer -> moveServer(action)
             is MainAction.ShareQRCode -> {
@@ -557,12 +557,12 @@ class MainViewModel(
 
     // ---------- Business actions (coroutine-based) ----------
     private fun importBatchConfig(configText: String) {
-        val problem = hubanImportProblem(configText)
+        val problem = hbtcpImportProblem(configText)
         if (problem != null) {
-            _uiState.update { it.copy(hubanImportError = if (problem == HubanImportProblem.EMPTY) R.string.huban_import_empty else R.string.huban_import_invalid) }
+            _uiState.update { it.copy(hbtcpImportError = if (problem == HbtcpImportProblem.EMPTY) R.string.hbtcp_import_empty else R.string.hbtcp_import_invalid) }
             return
         }
-        _uiState.update { it.copy(hubanImportError = null) }
+        _uiState.update { it.copy(hbtcpImportError = null) }
         launchLoading {
             withContext(ioDispatcher) {
                 try {
@@ -571,54 +571,54 @@ class MainViewModel(
                     )
                     when {
                         count > 0 -> {
-                            selectHubanImportedGroup(configText)
-                            _uiState.update { it.copy(hubanImportRevision = it.hubanImportRevision + 1) }
+                            selectHbtcpImportedGroup(configText)
+                            _uiState.update { it.copy(hbtcpImportRevision = it.hbtcpImportRevision + 1) }
                             toast(dataSource.getString(R.string.title_import_config_count, count))
                             setupGroupTab(forceRefresh = true)
                         }
 
                         countSub > 0 -> {
-                            val importedGroup = selectHubanImportedGroup(configText)
+                            val importedGroup = selectHbtcpImportedGroup(configText)
                             val hasServers = dataSource.getServerGuidList(importedGroup).isNotEmpty()
                             _uiState.update {
-                                if (hasServers) it.copy(hubanImportRevision = it.hubanImportRevision + 1)
-                                else it.copy(hubanImportError = R.string.huban_import_failed)
+                                if (hasServers) it.copy(hbtcpImportRevision = it.hbtcpImportRevision + 1)
+                                else it.copy(hbtcpImportError = R.string.hbtcp_import_failed)
                             }
                             setupGroupTab(forceRefresh = true)
                         }
                         else -> {
-                            _uiState.update { it.copy(hubanImportError = R.string.huban_import_failed) }
-                            toastError(R.string.huban_import_failed)
+                            _uiState.update { it.copy(hbtcpImportError = R.string.hbtcp_import_failed) }
+                            toastError(R.string.hbtcp_import_failed)
                         }
                     }
                 } catch (cancelled: CancellationException) {
                     throw cancelled
                 } catch (e: Exception) {
                     LogUtil.e(AppConfig.TAG, "Failed to import batch config", e)
-                    _uiState.update { it.copy(hubanImportError = R.string.huban_import_failed) }
+                    _uiState.update { it.copy(hbtcpImportError = R.string.hbtcp_import_failed) }
                     toastError(R.string.toast_failure)
                 }
             }
         }
     }
 
-    private fun setHubanGlobalMode(enabled: Boolean) {
+    private fun setHbtcpGlobalMode(enabled: Boolean) {
         viewModelScope.launch(ioDispatcher) {
             try {
-                hubanModeMutex.withLock {
-                    dataSource.setHubanGlobalMode(enabled)
-                    _uiState.update { it.copy(hubanGlobalMode = enabled) }
+                hbtcpModeMutex.withLock {
+                    dataSource.setHbtcpGlobalMode(enabled)
+                    _uiState.update { it.copy(hbtcpGlobalMode = enabled) }
                 }
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (error: Exception) {
-                LogUtil.e(AppConfig.TAG, "Failed to apply Huban routing mode", error)
-                toastError(R.string.huban_mode_failed)
+                LogUtil.e(AppConfig.TAG, "Failed to apply Hbtcp routing mode", error)
+                toastError(R.string.hbtcp_mode_failed)
             }
         }
     }
 
-    private fun selectHubanImportedGroup(configText: String): String {
+    private fun selectHbtcpImportedGroup(configText: String): String {
         val group = dataSource.getSubscriptions().firstOrNull {
             it.subscription.url == configText.trim()
         }?.guid ?: uiState.value.selectedGroupId

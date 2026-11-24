@@ -50,3 +50,39 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           gh release create "$RELEASE_TAG" "$RUNNER_TEMP"/release-apks/* --verify-tag --title "HBTCP Android ${RELEASE_TAG#v}" --notes-file android/release-notes.md --latest
+      - name: 核验新版并清理已替换的旧 Android 发布包
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, os, re, subprocess
+          manifest = json.loads(Path('android/release-artifacts.json').read_text())
+          repo, tag = os.environ['GH_REPO'], os.environ['RELEASE_TAG']
+          def release(name):
+              result = subprocess.run(['gh', 'api', f'repos/{repo}/releases/tags/{name}'], capture_output=True, text=True)
+              if result.returncode and 'HTTP 404' in result.stderr:
+                  return None
+              result.check_returncode()
+              return json.loads(result.stdout)
+          current = release(tag)
+          assert current and not current['draft'], 'New release is not publicly available'
+          published = {a['name']: a for a in current['assets']}
+          for asset in manifest['assets']:
+              name = 'HBTCP-Android.apk' if asset['name'] == manifest['universal'] else asset['name']
+              assert published[name]['size'] == asset['size'], 'Published size mismatch: ' + name
+              assert published[name]['digest'] == 'sha256:' + asset['sha256'], 'Published digest mismatch: ' + name
+          for old_tag in manifest.get('supersededAndroidReleases', []):
+              assert re.fullmatch(r'v\d+\.\d+\.\d+', old_tag) and old_tag != tag
+              old = release(old_tag)
+              if old is None:
+                  print('Already removed:', old_tag)
+                  continue
+              names = [a['name'] for a in old['assets']]
+              assert any(n.endswith('.apk') for n in names), 'Not an Android binary release'
+              assert all((n.startswith('HBTCP-') and n.endswith('.apk')) or n == 'SHA256SUMS' for n in names), 'Mixed-platform release must be reviewed separately'
+              subprocess.run(['gh', 'release', 'delete', old_tag, '--yes'], check=True)
+              print('Removed superseded Android release:', old_tag)
+          PY

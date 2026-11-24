@@ -12,14 +12,14 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist/qa"
 OUT.mkdir(parents=True, exist_ok=True)
 ADB = str(Path.home() / "Library/Android/sdk/platform-tools/adb")
-PACKAGE = "com.huban.client"
+PACKAGE = "com.hbtcp.client"
 
 def adb(*args, **kwargs):
     return subprocess.run([ADB, *args], capture_output=True, text=True, check=True, **kwargs).stdout
 
 def tree():
-    adb("shell", "uiautomator", "dump", "/sdcard/huban-qa.xml")
-    return ET.fromstring(adb("exec-out", "cat", "/sdcard/huban-qa.xml"))
+    adb("shell", "uiautomator", "dump", "/sdcard/hbtcp-qa.xml")
+    return ET.fromstring(adb("exec-out", "cat", "/sdcard/hbtcp-qa.xml"))
 
 def find(text, exact=True):
     for node in tree().iter("node"):
@@ -50,7 +50,7 @@ def probe(expected):
     command = "printf 'GET / HTTP/1.1\\r\\nHost: 1.1.1.1\\r\\nConnection: close\\r\\n\\r\\n' | toybox nc -w 12 1.1.1.1 80"
     response = adb("shell", command, timeout=20)
     (OUT / f"vpn-response-{expected}.txt").write_text(response)
-    if f"HUBAN_VPN_OK_NODE_{expected}" not in response:
+    if f"HBTCP_VPN_OK_NODE_{expected}" not in response:
         raise AssertionError(f"VPN packet path did not reach node {expected}: {response[:200]}")
 
 if __name__ == "__main__":

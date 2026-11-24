@@ -48,13 +48,13 @@ fun AboutScreen(
 ) {
     val context = LocalContext.current
     val versionText = "v${BuildConfig.VERSION_NAME}"
-    val appIdText = stringResource(R.string.huban_launcher_name)
+    val appIdText = stringResource(R.string.hbtcp_launcher_name)
 
     Scaffold(
         contentWindowInsets = WindowInsets(0),
         topBar = {
             AppTopBar(
-                title = stringResource(R.string.huban_about),
+                title = stringResource(R.string.hbtcp_about),
                 onBackClick = onBackClick
             )
         }
@@ -68,7 +68,7 @@ fun AboutScreen(
             SettingsMenuItem(
                 icon = painterResource(R.drawable.ic_source_code_24dp),
                 title = stringResource(R.string.title_source_code),
-                onClick = { Utils.openUri(context, AppConfig.HUBAN_SOURCE_URL) }
+                onClick = { Utils.openUri(context, AppConfig.HBTCP_SOURCE_URL) }
             )
             SettingsMenuItem(
                 icon = painterResource(R.drawable.ic_translate_24dp),
@@ -77,8 +77,8 @@ fun AboutScreen(
             )
             SettingsMenuItem(
                 icon = painterResource(R.drawable.ic_telegram_24dp),
-                title = stringResource(R.string.huban_customer_service),
-                subtitle = stringResource(R.string.huban_customer_service_handle),
+                title = stringResource(R.string.hbtcp_customer_service),
+                subtitle = stringResource(R.string.hbtcp_customer_service_handle),
                 onClick = { Utils.openUri(context, AppConfig.TG_CHANNEL_URL) }
             )
             VersionInfoBlock(

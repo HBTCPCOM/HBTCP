@@ -46,11 +46,11 @@ func main() {
 		{"Gemini full match does not include subdomains", "sub.gemini.google.com", "tcp", "direct", ""},
 		{"Mainland IPv4", "223.5.5.5", "tcp", "direct", ""},
 		{"Mainland IPv6", "2400:3200::1", "tcp", "direct", ""},
-		{"Unmatched domain resolved to mainland", "cn.huban-routing-qa.com", "tcp", "direct", ""},
-		{"Unmatched domain resolved overseas", "global.huban-routing-qa.com", "tcp", "proxy", ""},
+		{"Unmatched domain resolved to mainland", "cn.hbtcp-routing-qa.com", "tcp", "direct", ""},
+		{"Unmatched domain resolved overseas", "global.hbtcp-routing-qa.com", "tcp", "proxy", ""},
 		{"Unmatched IPv4", "8.8.8.8", "tcp", "proxy", ""},
 		{"Unmatched IPv6", "2606:4700:4700::1111", "tcp", "proxy", ""},
-		{"Suffix boundary", "qq.com.huban-routing-qa.com", "tcp", "proxy", ""},
+		{"Suffix boundary", "qq.com.hbtcp-routing-qa.com", "tcp", "proxy", ""},
 		{"LAN IPv4", "192.168.10.20", "tcp", "direct", ""},
 		{"LAN IPv6", "fd00::10", "tcp", "direct", ""},
 		{"LAN hostname", "printer.local", "tcp", "direct", ""},
@@ -67,7 +67,7 @@ func main() {
 		for _, c := range checks {
 			hosts[c.Host] = "8.8.8.8"
 		}
-		for _, host := range []string{"claude.com", "files.claudeusercontent.com", "claude.ai", "gemini.google.com", "sub.gemini.google.com", "cn.huban-routing-qa.com"} {
+		for _, host := range []string{"claude.com", "files.claudeusercontent.com", "claude.ai", "gemini.google.com", "sub.gemini.google.com", "cn.hbtcp-routing-qa.com"} {
 			hosts[host] = "223.5.5.5"
 		}
 		config["dns"] = map[string]any{"hosts": hosts, "servers": []any{}}

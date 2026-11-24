@@ -27,9 +27,9 @@ data class MainUiState(
     val locateTarget: LocateTarget? = null,
     val confirmRemove: Boolean = false,
     val doubleColumnDisplay: Boolean = false,
-    val hubanGlobalMode: Boolean = false,
-    val hubanImportError: Int? = null,
-    val hubanImportRevision: Int = 0,
+    val hbtcpGlobalMode: Boolean = false,
+    val hbtcpImportError: Int? = null,
+    val hbtcpImportRevision: Int = 0,
     val shareQRCodeBitmap: android.graphics.Bitmap? = null
 )
 
@@ -72,8 +72,8 @@ sealed interface MainAction {
     data class OpenSubscriptionLink(val url: String) : MainAction
 
     data class ImportBatchConfig(val configText: String) : MainAction
-    data class SetHubanGlobalMode(val enabled: Boolean) : MainAction
-    data object DismissHubanImportError : MainAction
+    data class SetHbtcpGlobalMode(val enabled: Boolean) : MainAction
+    data object DismissHbtcpImportError : MainAction
 
     data class LocateHandled(val target: LocateTarget) : MainAction
     data class MoveServer(val groupId: String, val fromGuid: String, val toGuid: String) : MainAction

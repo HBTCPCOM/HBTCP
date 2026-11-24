@@ -39,7 +39,7 @@ object NotificationHelper {
         title: String,
         content: String
     ) {
-        // Huban does not post optional alerts. Required service notifications use startForeground.
+        // Hbtcp does not post optional alerts. Required service notifications use startForeground.
     }
 
     /**

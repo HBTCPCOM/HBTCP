@@ -63,7 +63,7 @@
 
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/huban_launcher_name"
+            android:label="@string/hbtcp_launcher_name"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>

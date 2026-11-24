@@ -7,18 +7,18 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.io.File
 
-class HubanRoutingUpgradeTest {
+class HbtcpRoutingUpgradeTest {
     private val assets = File("src/main/assets")
     private fun rules(name: String) = JsonUtil.fromJson(
         File(assets, name).readText(), Array<RulesetItem>::class.java
     )!!.toList()
-    private val legacy = rules("huban_routing_white_v1")
+    private val legacy = rules("hbtcp_routing_white_v1")
     private val preset = rules("custom_routing_white")
 
     @Test
     fun `preceding default labels receive HBTCP branding without changing route conditions`() {
-        val previous = rules("huban_routing_white_v2")
-        val updates = SettingsManager.planHubanRoutingUpgrade(previous, legacy, preset, "IPIfNonMatch", previous)
+        val previous = rules("hbtcp_routing_white_v2")
+        val updates = SettingsManager.planHbtcpRoutingUpgrade(previous, legacy, preset, "IPIfNonMatch", previous)
         assertEquals(JsonUtil.toJson(preset), updates[AppConfig.PREF_ROUTING_RULESET])
         assertFalse(updates.containsKey(AppConfig.PREF_ROUTING_DOMAIN_STRATEGY))
         assertEquals(previous.map { it.copy(remarks = "") }, preset.map { it.copy(remarks = "") })
@@ -26,29 +26,29 @@ class HubanRoutingUpgradeTest {
 
     @Test
     fun `custom labels in the preceding release remain user data`() {
-        val previous = rules("huban_routing_white_v2")
+        val previous = rules("hbtcp_routing_white_v2")
         val custom = previous.mapIndexed { i, r -> if (i == 0) r.copy(remarks = "Mine") else r }
-        assertTrue(SettingsManager.planHubanRoutingUpgrade(custom, legacy, preset, "AsIs", previous).isEmpty())
+        assertTrue(SettingsManager.planHbtcpRoutingUpgrade(custom, legacy, preset, "AsIs", previous).isEmpty())
     }
 
     @Test
     fun `upgrades the preceding release format and initializes IP fallback once`() {
-        val updates = SettingsManager.planHubanRoutingUpgrade(legacy, legacy, preset, null)
+        val updates = SettingsManager.planHbtcpRoutingUpgrade(legacy, legacy, preset, null)
         assertEquals(preset, JsonUtil.fromJson(updates[AppConfig.PREF_ROUTING_RULESET]!!, Array<RulesetItem>::class.java)!!.toList())
         assertEquals("IPIfNonMatch", updates[AppConfig.PREF_ROUTING_DOMAIN_STRATEGY])
-        assertTrue(SettingsManager.planHubanRoutingUpgrade(preset, legacy, preset, "IPIfNonMatch").isEmpty())
+        assertTrue(SettingsManager.planHbtcpRoutingUpgrade(preset, legacy, preset, "IPIfNonMatch").isEmpty())
     }
 
     @Test
     fun `fresh defaults initialize strategy without replacing rules`() {
-        val updates = SettingsManager.planHubanRoutingUpgrade(preset, legacy, preset, null)
+        val updates = SettingsManager.planHbtcpRoutingUpgrade(preset, legacy, preset, null)
         assertEquals(mapOf(AppConfig.PREF_ROUTING_DOMAIN_STRATEGY to "IPIfNonMatch"), updates)
     }
 
     @Test
     fun `preserves every explicitly saved DNS routing strategy including AsIs`() {
         listOf("AsIs", "IPOnDemand", "IPIfNonMatch").forEach { strategy ->
-            val updates = SettingsManager.planHubanRoutingUpgrade(legacy, legacy, preset, strategy)
+            val updates = SettingsManager.planHbtcpRoutingUpgrade(legacy, legacy, preset, strategy)
             assertNotNull(updates[AppConfig.PREF_ROUTING_RULESET])
             assertFalse(updates.containsKey(AppConfig.PREF_ROUTING_DOMAIN_STRATEGY))
         }
@@ -65,7 +65,7 @@ class HubanRoutingUpgradeTest {
             legacy + RulesetItem(domain = listOf("domain:example.com"), outboundTag = "direct"),
         )
         custom.forEach { current ->
-            assertTrue(SettingsManager.planHubanRoutingUpgrade(current, legacy, preset, null).isEmpty())
+            assertTrue(SettingsManager.planHbtcpRoutingUpgrade(current, legacy, preset, null).isEmpty())
         }
     }
 

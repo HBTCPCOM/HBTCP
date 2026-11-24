@@ -60,28 +60,28 @@ object SettingsManager {
 
     /** Runs on the caller's IO worker, before routing and DNS are collected for the core. */
     @Synchronized
-    fun updateHubanRoutingDefaults(context: Context) {
-        if (MmkvManager.decodeSettingsBool("huban_global_mode_v1", false)) return
+    fun updateHbtcpRoutingDefaults(context: Context) {
+        if (MmkvManager.decodeSettingsBool("hbtcp_global_mode_v1", false)) return
         val current = MmkvManager.decodeRoutingRulesets() ?: return
         val legacy = JsonUtil.fromJson(
-            Utils.readTextFromAssets(context, "huban_routing_white_v1"), Array<RulesetItem>::class.java
-        )?.toList() ?: error("Missing Huban legacy routing preset")
+            Utils.readTextFromAssets(context, "hbtcp_routing_white_v1"), Array<RulesetItem>::class.java
+        )?.toList() ?: error("Missing Hbtcp legacy routing preset")
         val previousPreset = JsonUtil.fromJson(
-            Utils.readTextFromAssets(context, "huban_routing_white_v2"), Array<RulesetItem>::class.java
-        )?.toList() ?: error("Missing Huban preceding routing preset")
-        val preset = getPresetRoutingRulesets(context) ?: error("Missing Huban routing preset")
-        val updates = planHubanRoutingUpgrade(
+            Utils.readTextFromAssets(context, "hbtcp_routing_white_v2"), Array<RulesetItem>::class.java
+        )?.toList() ?: error("Missing Hbtcp preceding routing preset")
+        val preset = getPresetRoutingRulesets(context) ?: error("Missing Hbtcp routing preset")
+        val updates = planHbtcpRoutingUpgrade(
             current, legacy, preset, MmkvManager.decodeSettingsString(AppConfig.PREF_ROUTING_DOMAIN_STRATEGY), previousPreset
         )
         try {
             commitRoutingUpgrade(updates, MmkvManager::decodeSettingsString, MmkvManager::encodeSettings)
         } catch (e: Exception) {
-            LogUtil.e(ANG_PACKAGE, "Huban split routing default migration failed", e)
+            LogUtil.e(ANG_PACKAGE, "Hbtcp split routing default migration failed", e)
             throw e
         }
     }
 
-    internal fun planHubanRoutingUpgrade(
+    internal fun planHbtcpRoutingUpgrade(
         current: List<RulesetItem>,
         legacy: List<RulesetItem>,
         preset: List<RulesetItem>,

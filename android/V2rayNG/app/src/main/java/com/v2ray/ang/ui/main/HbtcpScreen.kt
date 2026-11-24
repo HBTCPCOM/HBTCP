@@ -71,7 +71,7 @@ import com.v2ray.ang.R
 import com.v2ray.ang.dto.entities.ServersCache
 import com.v2ray.ang.ui.compose.LocalDarkTheme
 
-private data class HubanColors(
+private data class HbtcpColors(
     val background: Color,
     val hero: Color,
     val ink: Color,
@@ -87,23 +87,23 @@ private data class HubanColors(
 )
 
 @Composable
-private fun hubanColors(): HubanColors = if (LocalDarkTheme.current) {
-    HubanColors(
+private fun hbtcpColors(): HbtcpColors = if (LocalDarkTheme.current) {
+    HbtcpColors(
         Color(0xFF24211D), Color(0xFF3D2E1B), Color(0xFFF6F0E5),
         Color(0xFFC2B7A5), Color(0xFF312D26), Color(0x22FCEFD9),
         Color(0xFFEEE4D3), Color(0xFF30291F), actionText = Color(0xFFFFB464), connected = Color(0xFF83C7A2)
     )
 } else {
-    HubanColors(
+    HbtcpColors(
         Color(0xFFFFFDF8), Color(0xFFFFE9C8), Color(0xFF29251E),
         Color(0xFF746A5A), Color(0xFFF3F0E9), Color(0x193F2A11),
         Color(0xFF30291F), Color(0xFFFFF8EE), connected = Color(0xFF307151)
     )
 }
 
-/** The compact Huban entry uses the existing main-screen action, repository and daemon contracts. */
+/** The compact Hbtcp entry uses the existing main-screen action, repository and daemon contracts. */
 @Composable
-fun HubanScreen(
+fun HbtcpScreen(
     viewModel: MainViewModel,
     onAction: (MainAction) -> Unit,
     onNavigate: (MainDestination) -> Unit
@@ -111,7 +111,7 @@ fun HubanScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val loading by viewModel.isLoading.collectAsStateWithLifecycle()
     val servers by viewModel.serversForGroup(state.selectedGroupId).collectAsStateWithLifecycle()
-    val colors = hubanColors()
+    val colors = hbtcpColors()
     var importMenu by rememberSaveable { mutableStateOf(false) }
     var appMenu by rememberSaveable { mutableStateOf(false) }
     var importDialog by rememberSaveable { mutableStateOf(false) }
@@ -122,8 +122,8 @@ fun HubanScreen(
     val selected = servers.firstOrNull { it.guid == state.selectedGuid }
     val group = state.groups.firstOrNull { it.id == state.selectedGroupId }
 
-    LaunchedEffect(state.hubanImportRevision) {
-        if (importStarted && state.hubanImportRevision > 0) {
+    LaunchedEffect(state.hbtcpImportRevision) {
+        if (importStarted && state.hbtcpImportRevision > 0) {
             importDialog = false
             importStarted = false
             input = ""
@@ -137,10 +137,10 @@ fun HubanScreen(
                 Column(Modifier.fillMaxWidth().navigationBarsPadding().padding(horizontal = 26.dp).padding(top = 8.dp, bottom = 12.dp)) {
                     Button(
                         onClick = {
-                            when (hubanConnectionAction(state.isRunning, servers.isNotEmpty(), selected != null)) {
-                                HubanConnectionAction.IMPORT -> importDialog = true
-                                HubanConnectionAction.SELECT_NODE -> nodeDialog = true
-                                HubanConnectionAction.START, HubanConnectionAction.STOP -> onAction(MainAction.ToggleService)
+                            when (hbtcpConnectionAction(state.isRunning, servers.isNotEmpty(), selected != null)) {
+                                HbtcpConnectionAction.IMPORT -> importDialog = true
+                                HbtcpConnectionAction.SELECT_NODE -> nodeDialog = true
+                                HbtcpConnectionAction.START, HbtcpConnectionAction.STOP -> onAction(MainAction.ToggleService)
                             }
                         },
                         enabled = !loading,
@@ -154,9 +154,9 @@ fun HubanScreen(
                         )
                     ) {
                         if (loading) CircularProgressIndicator(Modifier.size(20.dp), color = colors.secondary, strokeWidth = 2.dp)
-                        else Icon(painterResource(R.drawable.huban_power), null, Modifier.size(22.dp))
+                        else Icon(painterResource(R.drawable.hbtcp_power), null, Modifier.size(22.dp))
                         Spacer(Modifier.width(11.dp))
-                        Text(stringResource(if (loading) R.string.huban_importing else if (state.isRunning) R.string.huban_disconnect else R.string.huban_start), fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(if (loading) R.string.hbtcp_importing else if (state.isRunning) R.string.hbtcp_disconnect else R.string.hbtcp_start), fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -179,7 +179,7 @@ fun HubanScreen(
                         }
                         Box(Modifier.size(6.dp).background(if (state.isRunning) colors.connected else colors.secondary, CircleShape))
                         Spacer(Modifier.width(7.dp))
-                        Text(stringResource(if (state.isRunning) R.string.huban_connected else R.string.huban_disconnected), color = if (state.isRunning) colors.connected else colors.secondary, fontSize = 12.sp)
+                        Text(stringResource(if (state.isRunning) R.string.hbtcp_connected else R.string.hbtcp_disconnected), color = if (state.isRunning) colors.connected else colors.secondary, fontSize = 12.sp)
                         Box {
                             IconButton(onClick = { appMenu = true }, modifier = Modifier.size(48.dp)) {
                                 Icon(painterResource(R.drawable.ic_settings_24dp), stringResource(R.string.title_settings), tint = colors.secondary, modifier = Modifier.size(21.dp))
@@ -191,35 +191,35 @@ fun HubanScreen(
                                 border = BorderStroke(1.dp, colors.line)
                             ) {
                                 Text(stringResource(R.string.title_settings), color = colors.secondary, fontSize = 11.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 20.dp, top = 8.dp, bottom = 6.dp))
-                                HubanMenuItem(R.string.huban_refresh, R.drawable.ic_refresh_24dp, colors) { appMenu = false; onAction(MainAction.UpdateSubscriptions) }
-                                HubanMenuItem(R.string.huban_manage_subscriptions, R.drawable.ic_subscriptions_24dp, colors) { appMenu = false; onNavigate(MainDestination.Subscriptions) }
+                                HbtcpMenuItem(R.string.hbtcp_refresh, R.drawable.ic_refresh_24dp, colors) { appMenu = false; onAction(MainAction.UpdateSubscriptions) }
+                                HbtcpMenuItem(R.string.hbtcp_manage_subscriptions, R.drawable.ic_subscriptions_24dp, colors) { appMenu = false; onNavigate(MainDestination.Subscriptions) }
                                 HorizontalDivider(Modifier.padding(horizontal = 18.dp, vertical = 5.dp), color = colors.line)
-                                HubanMenuItem(R.string.huban_logs, R.drawable.ic_logcat_24dp, colors) { appMenu = false; onNavigate(MainDestination.Logcat) }
-                                HubanMenuItem(R.string.huban_about, R.drawable.ic_about_24dp, colors) { appMenu = false; onNavigate(MainDestination.About) }
+                                HbtcpMenuItem(R.string.hbtcp_logs, R.drawable.ic_logcat_24dp, colors) { appMenu = false; onNavigate(MainDestination.Logcat) }
+                                HbtcpMenuItem(R.string.hbtcp_about, R.drawable.ic_about_24dp, colors) { appMenu = false; onNavigate(MainDestination.About) }
                             }
                         }
                     }
                     Spacer(Modifier.height(if (compact) 4.dp else 10.dp))
-                    Image(painterResource(R.drawable.huban_logo), null, Modifier.size(if (compact) 104.dp else 136.dp).align(Alignment.CenterHorizontally))
+                    Image(painterResource(R.drawable.hbtcp_logo), null, Modifier.size(if (compact) 104.dp else 136.dp).align(Alignment.CenterHorizontally))
                 }
                 Column(Modifier.fillMaxWidth().padding(horizontal = 26.dp).padding(top = if (compact) 14.dp else 18.dp, bottom = 10.dp)) {
                     Text(
-                        stringResource(if (state.isRunning) R.string.huban_departed else R.string.huban_ready),
+                        stringResource(if (state.isRunning) R.string.hbtcp_departed else R.string.hbtcp_ready),
                         color = colors.ink, fontSize = 26.sp, fontWeight = FontWeight.SemiBold,
                         modifier = Modifier.align(Alignment.CenterHorizontally)
                     )
                     Spacer(Modifier.height(6.dp))
-                    Text(stringResource(if (state.isRunning) R.string.huban_connected_hint else R.string.huban_ready_hint), color = colors.secondary, fontSize = 13.sp, modifier = Modifier.align(Alignment.CenterHorizontally))
+                    Text(stringResource(if (state.isRunning) R.string.hbtcp_connected_hint else R.string.hbtcp_ready_hint), color = colors.secondary, fontSize = 13.sp, modifier = Modifier.align(Alignment.CenterHorizontally))
                     Spacer(Modifier.height(if (compact) 16.dp else 22.dp))
-                    HubanLabel(R.string.huban_mode, colors)
+                    HbtcpLabel(R.string.hbtcp_mode, colors)
                     Row(Modifier.fillMaxWidth().background(colors.inset, RoundedCornerShape(15.dp)).padding(4.dp)) {
-                        HubanModeButton(R.string.huban_rule, R.drawable.huban_split, !state.hubanGlobalMode, colors, Modifier.weight(1f)) { onAction(MainAction.SetHubanGlobalMode(false)) }
-                        HubanModeButton(R.string.huban_global, R.drawable.huban_globe, state.hubanGlobalMode, colors, Modifier.weight(1f)) { onAction(MainAction.SetHubanGlobalMode(true)) }
+                        HbtcpModeButton(R.string.hbtcp_rule, R.drawable.hbtcp_split, !state.hbtcpGlobalMode, colors, Modifier.weight(1f)) { onAction(MainAction.SetHbtcpGlobalMode(false)) }
+                        HbtcpModeButton(R.string.hbtcp_global, R.drawable.hbtcp_globe, state.hbtcpGlobalMode, colors, Modifier.weight(1f)) { onAction(MainAction.SetHbtcpGlobalMode(true)) }
                     }
                     Spacer(Modifier.height(8.dp))
-                    Text(stringResource(if (state.hubanGlobalMode) R.string.huban_global_hint else R.string.huban_rule_hint), color = colors.secondary, fontSize = 12.sp, lineHeight = 19.sp)
+                    Text(stringResource(if (state.hbtcpGlobalMode) R.string.hbtcp_global_hint else R.string.hbtcp_rule_hint), color = colors.secondary, fontSize = 12.sp, lineHeight = 19.sp)
                     Spacer(Modifier.height(16.dp))
-                    HubanLabel(R.string.huban_subscription, colors)
+                    HbtcpLabel(R.string.hbtcp_subscription, colors)
                     Row(
                         Modifier.fillMaxWidth().heightIn(min = 70.dp)
                             .background(colors.background, RoundedCornerShape(16.dp))
@@ -234,18 +234,18 @@ fun HubanScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Box(Modifier.size(38.dp).background(colors.inset, RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
-                                Icon(painterResource(R.drawable.huban_link), null, tint = colors.secondary, modifier = Modifier.size(18.dp))
+                                Icon(painterResource(R.drawable.hbtcp_link), null, tint = colors.secondary, modifier = Modifier.size(18.dp))
                             }
                             Spacer(Modifier.width(12.dp))
                             Column(Modifier.weight(1f)) {
-                                Text(if (servers.isEmpty()) stringResource(R.string.huban_import_link) else group?.remarks?.takeIf { it.isNotBlank() && it != "import sub" } ?: stringResource(R.string.huban_imported), color = colors.ink, fontSize = 15.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                Text(if (servers.isEmpty()) stringResource(R.string.hbtcp_import_link) else group?.remarks?.takeIf { it.isNotBlank() && it != "import sub" } ?: stringResource(R.string.hbtcp_imported), color = colors.ink, fontSize = 15.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                 Spacer(Modifier.height(4.dp))
-                                Text(if (loading) stringResource(R.string.huban_importing) else if (servers.isEmpty()) stringResource(R.string.huban_import_methods) else stringResource(R.string.huban_node_count, servers.size), color = colors.secondary, fontSize = 12.sp, maxLines = 1)
+                                Text(if (loading) stringResource(R.string.hbtcp_importing) else if (servers.isEmpty()) stringResource(R.string.hbtcp_import_methods) else stringResource(R.string.hbtcp_node_count, servers.size), color = colors.secondary, fontSize = 12.sp, maxLines = 1)
                             }
                         }
                         Box {
                             IconButton(onClick = { importMenu = true }, enabled = !loading, modifier = Modifier.size(46.dp)) {
-                                Icon(painterResource(R.drawable.ic_expand_more_24dp), stringResource(R.string.huban_import_options), tint = colors.secondary, modifier = Modifier.size(20.dp))
+                                Icon(painterResource(R.drawable.ic_expand_more_24dp), stringResource(R.string.hbtcp_import_options), tint = colors.secondary, modifier = Modifier.size(20.dp))
                             }
                             DropdownMenu(
                                 expanded = importMenu, onDismissRequest = { importMenu = false },
@@ -253,18 +253,18 @@ fun HubanScreen(
                                 containerColor = colors.background, tonalElevation = 0.dp, shadowElevation = 8.dp,
                                 border = BorderStroke(1.dp, colors.line)
                             ) {
-                                Text(stringResource(R.string.huban_import_options), color = colors.secondary, fontSize = 11.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 20.dp, top = 8.dp, bottom = 6.dp))
-                                HubanMenuItem(R.string.huban_import_link, R.drawable.huban_link, colors) { importMenu = false; importDialog = true }
-                                HubanMenuItem(R.string.huban_scan, R.drawable.ic_scan_24dp, colors) { importMenu = false; onAction(MainAction.ImportQRcode) }
-                                HubanMenuItem(R.string.huban_clipboard, R.drawable.ic_copy, colors) { importMenu = false; onAction(MainAction.ImportClipboard) }
+                                Text(stringResource(R.string.hbtcp_import_options), color = colors.secondary, fontSize = 11.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 20.dp, top = 8.dp, bottom = 6.dp))
+                                HbtcpMenuItem(R.string.hbtcp_import_link, R.drawable.hbtcp_link, colors) { importMenu = false; importDialog = true }
+                                HbtcpMenuItem(R.string.hbtcp_scan, R.drawable.ic_scan_24dp, colors) { importMenu = false; onAction(MainAction.ImportQRcode) }
+                                HbtcpMenuItem(R.string.hbtcp_clipboard, R.drawable.ic_copy, colors) { importMenu = false; onAction(MainAction.ImportClipboard) }
                             }
                         }
                     }
-                    if (state.hubanImportError != null && !importDialog) {
-                        Text(stringResource(state.hubanImportError!!), color = MaterialTheme.colorScheme.error, fontSize = 12.sp, modifier = Modifier.padding(top = 8.dp))
+                    if (state.hbtcpImportError != null && !importDialog) {
+                        Text(stringResource(state.hbtcpImportError!!), color = MaterialTheme.colorScheme.error, fontSize = 12.sp, modifier = Modifier.padding(top = 8.dp))
                     }
                     Spacer(Modifier.height(16.dp))
-                    HubanLabel(R.string.huban_node, colors)
+                    HbtcpLabel(R.string.hbtcp_node, colors)
                     Surface(
                         onClick = { if (servers.isNotEmpty()) nodeDialog = true else importDialog = true },
                         modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(15.dp),
@@ -272,11 +272,11 @@ fun HubanScreen(
                         border = BorderStroke(1.dp, colors.line)
                     ) {
                         Row(Modifier.heightIn(min = 52.dp).padding(horizontal = 15.dp, vertical = 13.dp), verticalAlignment = Alignment.CenterVertically) {
-                            Text(selected?.profile?.remarks?.takeIf { it.isNotBlank() } ?: stringResource(R.string.huban_select_after_import), color = if (servers.isEmpty()) colors.secondary else colors.ink, fontSize = 15.sp, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                            Text(selected?.profile?.remarks?.takeIf { it.isNotBlank() } ?: stringResource(R.string.hbtcp_select_after_import), color = if (servers.isEmpty()) colors.secondary else colors.ink, fontSize = 15.sp, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
                             Icon(painterResource(R.drawable.ic_expand_more_24dp), null, tint = colors.secondary, modifier = Modifier.size(20.dp))
                         }
                     }
-                    Text(stringResource(R.string.huban_switch_hint), color = colors.secondary, fontSize = 12.sp, lineHeight = 19.sp, modifier = Modifier.padding(top = 8.dp))
+                    Text(stringResource(R.string.hbtcp_switch_hint), color = colors.secondary, fontSize = 12.sp, lineHeight = 19.sp, modifier = Modifier.padding(top = 8.dp))
                 }
             }
         }
@@ -284,34 +284,34 @@ fun HubanScreen(
 
     if (importDialog) {
         AlertDialog(
-            onDismissRequest = { if (!loading) { importDialog = false; onAction(MainAction.DismissHubanImportError) } },
-            title = { Text(stringResource(R.string.huban_import_link)) },
+            onDismissRequest = { if (!loading) { importDialog = false; onAction(MainAction.DismissHbtcpImportError) } },
+            title = { Text(stringResource(R.string.hbtcp_import_link)) },
             text = {
                 Column(Modifier.verticalScroll(rememberScrollState()).imePadding()) {
                     OutlinedTextField(
                         value = input,
-                        onValueChange = { input = it; onAction(MainAction.DismissHubanImportError) },
-                        label = { Text(stringResource(R.string.huban_subscription_url)) },
+                        onValueChange = { input = it; onAction(MainAction.DismissHbtcpImportError) },
+                        label = { Text(stringResource(R.string.hbtcp_subscription_url)) },
                         modifier = Modifier.fillMaxWidth(), enabled = !loading,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
                         minLines = 2, maxLines = 5,
-                        isError = state.hubanImportError != null
+                        isError = state.hbtcpImportError != null
                     )
                     Spacer(Modifier.height(8.dp))
-                    Text(stringResource(state.hubanImportError ?: R.string.huban_import_help), color = if (state.hubanImportError == null) colors.secondary else MaterialTheme.colorScheme.error, fontSize = 12.sp, lineHeight = 19.sp)
+                    Text(stringResource(state.hbtcpImportError ?: R.string.hbtcp_import_help), color = if (state.hbtcpImportError == null) colors.secondary else MaterialTheme.colorScheme.error, fontSize = 12.sp, lineHeight = 19.sp)
                 }
             },
             confirmButton = {
                 TextButton(enabled = !loading, colors = ButtonDefaults.textButtonColors(contentColor = colors.actionText), onClick = { importStarted = true; onAction(MainAction.ImportBatchConfig(input)) }) {
-                    Text(stringResource(if (loading) R.string.huban_importing else R.string.huban_import))
+                    Text(stringResource(if (loading) R.string.hbtcp_importing else R.string.hbtcp_import))
                 }
             },
-            dismissButton = { TextButton(enabled = !loading, colors = ButtonDefaults.textButtonColors(contentColor = colors.secondary), onClick = { importDialog = false; onAction(MainAction.DismissHubanImportError) }) { Text(stringResource(R.string.huban_cancel)) } },
+            dismissButton = { TextButton(enabled = !loading, colors = ButtonDefaults.textButtonColors(contentColor = colors.secondary), onClick = { importDialog = false; onAction(MainAction.DismissHbtcpImportError) }) { Text(stringResource(R.string.hbtcp_cancel)) } },
             containerColor = colors.background
         )
     }
     if (nodeDialog) {
-        HubanNodeDialog(servers, state.selectedGuid, colors, onDismiss = { nodeDialog = false }) { guid ->
+        HbtcpNodeDialog(servers, state.selectedGuid, colors, onDismiss = { nodeDialog = false }) { guid ->
             nodeDialog = false
             onAction(MainAction.SelectServer(guid))
         }
@@ -319,7 +319,7 @@ fun HubanScreen(
     if (subscriptionDialog) {
         AlertDialog(
             onDismissRequest = { subscriptionDialog = false },
-            title = { Text(stringResource(R.string.huban_subscription)) },
+            title = { Text(stringResource(R.string.hbtcp_subscription)) },
             text = {
                 Column(Modifier.heightIn(max = 400.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     state.groups.forEach { item ->
@@ -332,7 +332,7 @@ fun HubanScreen(
                                 border = BorderStroke(1.dp, colors.line)
                             ) {
                                 Row(Modifier.padding(horizontal = 14.dp, vertical = 15.dp), verticalAlignment = Alignment.CenterVertically) {
-                                    Icon(painterResource(R.drawable.huban_link), null, tint = colors.secondary, modifier = Modifier.size(19.dp))
+                                    Icon(painterResource(R.drawable.hbtcp_link), null, tint = colors.secondary, modifier = Modifier.size(19.dp))
                                     Spacer(Modifier.width(12.dp))
                                     Text(item.remarks, color = colors.ink, fontSize = 14.sp, modifier = Modifier.weight(1f), maxLines = 2, overflow = TextOverflow.Ellipsis)
                                     if (isSelected) Icon(painterResource(R.drawable.ic_action_done), null, tint = colors.actionText, modifier = Modifier.size(18.dp))
@@ -342,15 +342,15 @@ fun HubanScreen(
                     }
                 }
             },
-            confirmButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.actionText), onClick = { subscriptionDialog = false; importDialog = true }) { Text(stringResource(R.string.huban_import_link)) } },
-            dismissButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.secondary), onClick = { subscriptionDialog = false }) { Text(stringResource(R.string.huban_cancel)) } },
+            confirmButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.actionText), onClick = { subscriptionDialog = false; importDialog = true }) { Text(stringResource(R.string.hbtcp_import_link)) } },
+            dismissButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.secondary), onClick = { subscriptionDialog = false }) { Text(stringResource(R.string.hbtcp_cancel)) } },
             containerColor = colors.background
         )
     }
 }
 
 @Composable
-private fun HubanMenuItem(text: Int, icon: Int, colors: HubanColors, onClick: () -> Unit) {
+private fun HbtcpMenuItem(text: Int, icon: Int, colors: HbtcpColors, onClick: () -> Unit) {
     DropdownMenuItem(
         text = { Text(stringResource(text), color = colors.ink, fontSize = 14.sp, fontWeight = FontWeight.Medium) },
         leadingIcon = {
@@ -364,12 +364,12 @@ private fun HubanMenuItem(text: Int, icon: Int, colors: HubanColors, onClick: ()
 }
 
 @Composable
-private fun HubanLabel(text: Int, colors: HubanColors) {
+private fun HbtcpLabel(text: Int, colors: HbtcpColors) {
     Text(stringResource(text), color = colors.secondary, fontSize = 12.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(bottom = 7.dp))
 }
 
 @Composable
-private fun HubanModeButton(text: Int, icon: Int, selected: Boolean, colors: HubanColors, modifier: Modifier, onClick: () -> Unit) {
+private fun HbtcpModeButton(text: Int, icon: Int, selected: Boolean, colors: HbtcpColors, modifier: Modifier, onClick: () -> Unit) {
     Row(
         modifier.height(44.dp).clip(RoundedCornerShape(12.dp))
             .background(if (selected) colors.selected else Color.Transparent)
@@ -383,12 +383,12 @@ private fun HubanModeButton(text: Int, icon: Int, selected: Boolean, colors: Hub
 }
 
 @Composable
-private fun HubanNodeDialog(servers: List<ServersCache>, selectedGuid: String?, colors: HubanColors, onDismiss: () -> Unit, onSelect: (String) -> Unit) {
+private fun HbtcpNodeDialog(servers: List<ServersCache>, selectedGuid: String?, colors: HbtcpColors, onDismiss: () -> Unit, onSelect: (String) -> Unit) {
     val focusRequester = remember { FocusRequester() }
     val focusTarget = servers.firstOrNull { it.guid == selectedGuid }?.guid ?: servers.firstOrNull()?.guid
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.huban_select_node)) },
+        title = { Text(stringResource(R.string.hbtcp_select_node)) },
         text = {
             Column(Modifier.heightIn(max = 420.dp).verticalScroll(rememberScrollState())) {
                 servers.forEach { server ->
@@ -413,7 +413,7 @@ private fun HubanNodeDialog(servers: List<ServersCache>, selectedGuid: String?, 
                 }
             }
         },
-        confirmButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.actionText), onClick = onDismiss) { Text(stringResource(R.string.huban_close)) } },
+        confirmButton = { TextButton(colors = ButtonDefaults.textButtonColors(contentColor = colors.actionText), onClick = onDismiss) { Text(stringResource(R.string.hbtcp_close)) } },
         containerColor = colors.background
     )
 }
