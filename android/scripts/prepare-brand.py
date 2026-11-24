@@ -65,7 +65,7 @@ EN = {
     "huban_import_failed": "No nodes imported. Check the link, network, or subscription format and try again.",
     "huban_mode_failed": "Could not apply the mode. Try again.", "huban_more": "More options",
     "huban_refresh": "Refresh subscriptions", "huban_manage_subscriptions": "Manage subscriptions",
-    "huban_logs": "Connection logs", "huban_settings": "Advanced settings", "huban_about": "About HBTCP", "huban_launcher_name": "HBTCP", "huban_customer_service": "Telegram support", "huban_customer_service_handle": r"\@HBTCP_bot",
+    "huban_logs": "Connection logs", "huban_about": "About HBTCP", "huban_launcher_name": "HBTCP", "huban_customer_service": "Telegram support", "huban_customer_service_handle": r"\@HBTCP_bot",
 }
 ZH = {
     "huban_wordmark": "HBTCP", "huban_ready": "准备出发", "huban_departed": "已经出发",
@@ -86,7 +86,7 @@ ZH = {
     "huban_import_failed": "没有导入节点，请检查链接、网络或订阅格式后重试。",
     "huban_mode_failed": "模式切换失败，请重试。", "huban_more": "更多选项",
     "huban_refresh": "更新订阅", "huban_manage_subscriptions": "管理订阅",
-    "huban_logs": "连接日志", "huban_settings": "高级设置", "huban_about": "关于 HBTCP", "huban_launcher_name": "HBTCP", "huban_customer_service": "Telegram 客服", "huban_customer_service_handle": r"\@HBTCP_bot",
+    "huban_logs": "连接日志", "huban_about": "关于 HBTCP", "huban_launcher_name": "HBTCP", "huban_customer_service": "Telegram 客服", "huban_customer_service_handle": r"\@HBTCP_bot",
 }
 
 def strings():
@@ -110,15 +110,6 @@ def notices():
     license_text = (ROOT / "branding/LUCIDE-LICENSE.txt").read_text()
     (assets / "HUBAN-THIRD-PARTY-NOTICES.txt").write_text(license_text)
     shutil.copy2(ROOT / "LICENSE", assets / "GPL-3.0.txt")
-    document = assets / "open_source_licenses.html"
-    html = document.read_text()
-    if 'id="huban-license-notice"' not in html:
-        section = '<section id="huban-license-notice"><h2>HBTCP icons: Lucide / Feather</h2><pre>' + escape(license_text) + '</pre></section>'
-        if '</body>' in html:
-            html = html.replace('</body>', section + '\n</body>')
-        else:
-            html += '\n' + section
-        document.write_text(html)
 
 if __name__ == "__main__":
     logo_vector()

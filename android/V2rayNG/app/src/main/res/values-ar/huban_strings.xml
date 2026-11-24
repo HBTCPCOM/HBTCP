@@ -40,7 +40,6 @@
     <string name="huban_refresh">Refresh subscriptions</string>
     <string name="huban_manage_subscriptions">Manage subscriptions</string>
     <string name="huban_logs">Connection logs</string>
-    <string name="huban_settings">Advanced settings</string>
     <string name="huban_about">About HBTCP</string>
     <string name="huban_launcher_name">HBTCP</string>
     <string name="huban_customer_service">Telegram support</string>

@@ -40,7 +40,6 @@
     <string name="huban_refresh">更新订阅</string>
     <string name="huban_manage_subscriptions">管理订阅</string>
     <string name="huban_logs">连接日志</string>
-    <string name="huban_settings">高级设置</string>
     <string name="huban_about">关于 HBTCP</string>
     <string name="huban_launcher_name">HBTCP</string>
     <string name="huban_customer_service">Telegram 客服</string>

@@ -1,25 +1,25 @@
-# HBTCP 客户端
+# HBTCP
 
-HBTCP 客户端的多平台源码仓库。每个平台独立组织源码、构建方法和许可证。
+HBTCP 客户端的多平台源码仓库。
 
-## 目录
+[![下载 Android APK](https://img.shields.io/badge/Android-下载_HBTCP_APK-874009?style=for-the-badge&logo=android&logoColor=white)](https://github.com/HUBANTCP/HBTCP/releases/latest/download/HBTCP-Android.apk)
 
-| 平台 | 目录 | 状态 |
-| --- | --- | --- |
-| Android | [android/](android/README-HUBAN.md) | 原生客户端 1.0.2 |
-
-其他平台后续按独立目录加入。
+[全部安装包与版本记录](https://github.com/HUBANTCP/HBTCP/releases) · [HBTCP 官网](https://hbtcp.com)
 
 ## Android
 
-安卓客户端使用 Kotlin / Jetpack Compose、Xray 和 HEV，支持分流 / 全局、导入订阅、选择节点、VPN 连接，以及打开 App 时刷新订阅。
+- 分流 / 全局模式，一键启动与切换节点。
+- 支持订阅链接、扫码和剪贴板导入。
+- 打开 App 时刷新订阅，自动同步服务端节点变更。
+- 内置国内直连与海外代理分流规则。
+- Telegram 客服：[@HBTCP_bot](https://t.me/HBTCP_bot)。
 
-构建方法见 [安卓说明](android/README-HUBAN.md)，测试结果见 [验证记录](android/VALIDATION.md)。运行构建命令前先进入 `android/`。
+通用 APK 适合大多数安卓设备；按处理器架构区分的精简安装包可在版本页面下载。
 
-不内置生产订阅、账号密码、发布签名私钥或测试节点。发布签名应由维护者在仓库外独立管理。
+## 源码
 
-## 许可与来源
+| 平台 | 目录 | 说明 |
+| --- | --- | --- |
+| Android | [android/](android/README-HUBAN.md) | Kotlin / Jetpack Compose 原生客户端 |
 
-安卓客户端基于 [v2rayNG](https://github.com/2dust/v2rayNG)，许可见 [android/LICENSE](android/LICENSE)。Xray、HEV 和其他依赖的许可与归属说明保留在安卓目录及安装包中。
-
-本次安卓源码来自本地提交 `4da92460ecc362b86b41388e322b29b7008ae507`；构建输入及原生子模块版本固定在 `android/build-inputs.json` 和 Git 子模块中。
+其他平台后续按独立目录加入。安卓构建说明见 [android/README-HUBAN.md](android/README-HUBAN.md)。

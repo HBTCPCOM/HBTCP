@@ -1,0 +1,53 @@
+name: 发布 Android 安装包
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: 获取并校验已签名的 Android 安装包
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, os, shutil, urllib.request
+          manifest = json.loads(Path('android/release-artifacts.json').read_text())
+          assert os.environ['RELEASE_TAG'] == 'v' + manifest['version'], 'Tag and APK version differ'
+          out = Path(os.environ['RUNNER_TEMP']) / 'release-apks'
+          out.mkdir()
+          for asset in manifest['assets']:
+              name = asset['name']
+              assert name == Path(name).name and name.endswith('.apk')
+              url = 'https://hbtcp.com/downloads/' + name
+              with urllib.request.urlopen(url, timeout=180) as response, (out / name).open('wb') as target:
+                  shutil.copyfileobj(response, target)
+              data = (out / name).read_bytes()
+              assert len(data) == asset['size'], 'Size mismatch: ' + name
+              assert hashlib.sha256(data).hexdigest() == asset['sha256'], 'SHA-256 mismatch: ' + name
+              print('Verified', name)
+          shutil.move(out / manifest['universal'], out / 'HBTCP-Android.apk')
+          (out / 'SHA256SUMS').write_text(''.join(
+              hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name + '\n'
+              for p in sorted(out.glob('*.apk'))))
+          PY
+      - name: 发布 GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" "$RUNNER_TEMP"/release-apks/* --verify-tag --title "HBTCP Android ${RELEASE_TAG#v}" --notes-file android/release-notes.md --latest

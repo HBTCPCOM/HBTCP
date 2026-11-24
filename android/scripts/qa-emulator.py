@@ -55,7 +55,6 @@ def probe(expected):
 
 if __name__ == "__main__":
     adb("shell", "cmd", "locale", "set-app-locales", PACKAGE, "--user", "0", "--locales", "zh-CN")
-    adb("shell", "pm", "grant", PACKAGE, "android.permission.POST_NOTIFICATIONS")
     adb("shell", "am", "start", "-n", PACKAGE + "/com.v2ray.ang.ui.main.MainActivity")
     wait_text("准备出发")
     screenshot("home-empty.png")

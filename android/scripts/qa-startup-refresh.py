@@ -38,6 +38,8 @@ def starts():
 
 if __name__ == "__main__":
     assert qa.adb("shell", "getprop", "ro.kernel.qemu").strip() == "1"
+    installed = qa.adb("shell", "dumpsys", "package", qa.PACKAGE)
+    version = re.search(r"versionName=(\S+)", installed).group(1)
     qa.adb("shell", "pm", "clear", qa.PACKAGE)
     qa.adb("shell", "cmd", "locale", "set-app-locales", qa.PACKAGE, "--user", "0", "--locales", "zh-CN")
     qa.adb("logcat", "-c")
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     qa.wait_text("准备出发")
     assert len(results()["requests"]) == initial_requests
     assert qa.find("Allow", exact=False) is None
-    qa.screenshot("1.0.2-home-empty.png")
+    qa.screenshot(f"{version}-home-empty.png")
     qa.click("导入订阅链接")
     edit = next(n for n in qa.tree().iter("node") if n.get("class") == "android.widget.EditText")
     bounds = [int(v) for v in re.findall(r"\d+", edit.get("bounds"))]
@@ -78,7 +80,7 @@ if __name__ == "__main__":
     qa.wait_text("虎斑验证节点-C")
     assert qa.find("虎斑验证节点-B") is None
     qa.click("关闭")
-    qa.screenshot("1.0.2-updated-node-connected.png")
+    qa.screenshot(f"{version}-updated-node-connected.png")
     print("changed subscription: refreshed list, retained node name, applied new endpoint through real VPN", flush=True)
     for phase in ("failure", "invalid"):
         change(phase)
@@ -95,6 +97,6 @@ if __name__ == "__main__":
     qa.wait_text("准备出发")
     fixture = results()
     fixture["requests"] = fixture["requests"][initial_requests:]
-    report = {"result": "passed", "version": "1.0.2", "checks": ["empty startup", "no notification permission dialog", "import", "foreground auto refresh", "unchanged selected node does not restart", "changed selected endpoint reloads active VPN", "new and removed nodes reflected", "HTTP failure preserves cache", "invalid response preserves cache"], "fixture": fixture}
+    report = {"result": "passed", "version": version, "checks": ["empty startup", "no notification permission dialog", "import", "foreground auto refresh", "unchanged selected node does not restart", "changed selected endpoint reloads active VPN", "new and removed nodes reflected", "HTTP failure preserves cache", "invalid response preserves cache"], "fixture": fixture}
     (OUT / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     print("PASS: startup refresh", flush=True)

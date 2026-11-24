@@ -292,15 +292,11 @@
     <string name="summary_pref_group_all_display">সব সাবস্ক্রিপশন গ্রুপের কনফিগ একটি ট্যাবে দেখান।</string>
 
     <!-- AboutActivity -->
-    <string name="title_pref_feedback">মতামত</string>
-    <string name="summary_pref_feedback">মতামত উন্নয়ন বা বাগগুলি GitHub-এ পাঠান</string>
     <string name="summary_pref_tg_group">টেলিগ্রাম গ্রুপে যোগদান করুন</string>
     <string name="toast_tg_app_not_found">টেলিগ্রাম অ্যাপ পাওয়া যায়নি</string>
-    <string name="title_privacy_policy">গোপনীয়তা নীতি</string>
     <string name="title_qr_code">QR কোড</string>
     <string name="title_about">সম্পর্কিত</string>
     <string name="title_source_code">সোর্স কোড</string>
-    <string name="title_oss_license">ওপেন সোর্স লাইসেন্স</string>
     <string name="title_translators">অনুবাদকগণ</string>
     <string name="title_tg_channel">টেলিগ্রাম চ্যানেল</string>
 

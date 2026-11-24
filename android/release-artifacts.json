@@ -1,0 +1,31 @@
+{
+  "version": "1.0.3",
+  "universal": "HBTCP-1.0.3-universal.apk",
+  "assets": [
+    {
+      "name": "HBTCP-1.0.3-arm64-v8a.apk",
+      "size": 34025688,
+      "sha256": "38c57ea0e091628ed1cfb8307547f82597ff2c024ff93703628ae1c8ee44f169"
+    },
+    {
+      "name": "HBTCP-1.0.3-armeabi-v7a.apk",
+      "size": 34568622,
+      "sha256": "241580463dfcd4ff84ecb285a72f24a952b8a240f02abadc693558a6841cdb32"
+    },
+    {
+      "name": "HBTCP-1.0.3-universal.apk",
+      "size": 73682497,
+      "sha256": "34bee5b68eeb13c3c43e2500d25d25d653ff790b856ba226f4a5d3a8b31e4ec9"
+    },
+    {
+      "name": "HBTCP-1.0.3-x86.apk",
+      "size": 35606146,
+      "sha256": "c511a0b5877b2b580ce335cb3a80e40a0a924673bdecb86d69da676fac563915"
+    },
+    {
+      "name": "HBTCP-1.0.3-x86_64.apk",
+      "size": 35081423,
+      "sha256": "e0904e42dbf50ed4f2924f6d4cfed70f95689e22f7edbc5c5c055c042ee22b86"
+    }
+  ]
+}

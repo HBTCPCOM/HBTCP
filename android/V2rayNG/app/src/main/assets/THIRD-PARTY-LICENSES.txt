@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head><meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <style>body { font-family: sans-serif; background-color: #ffffff; color: #000000; } a { color: #0000EE; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; word-break: break-word; display: inline-block; } @media (prefers-color-scheme: dark) { body { background-color: #121212; color: #E0E0E0; } a { color: #BB86FC; } pre { background-color: #333333; color: #E0E0E0; } }</style>
-    <title>Open source licenses</title>
-  </head>
-  <body>
-    <h3>Notice for packages:</h3>
-    <ul>
-      <li><a href="#189946331">Camera Core</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="189946331"></a>
-    <pre>                                 Apache License
+Open source licenses
+
+Notice for packages:
+
+Camera Core
+
+          Copyright © 2019 The Android Open Source Project
+
+                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -216,676 +207,451 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-</pre>
-<br>
-    <pre>BSD License
-<a href="https://chromium.googlesource.com/libyuv/libyuv/+/refs/heads/main/README.chromium">https://chromium.googlesource.com/libyuv/libyuv/+/refs/heads/main/README.chromium</a></pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#1934118923">Activity</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Activity Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android App Startup Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Arch-Common</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Arch-Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Emoji2 Compat</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Emoji2 Compat view helpers</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Multi-Dex Library</a>
-        <dl>
-          <dt>Copyright &copy; 2013 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Preferences KTX</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Resource Inspection - Annotations</a>
-        <dl>
-          <dt>Copyright &copy; 2021 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support AnimatedVectorDrawable</a>
-        <dl>
-          <dt>Copyright &copy; 2015 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support CardView v7</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support DynamicAnimation</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support ExifInterface</a>
-        <dl>
-          <dt>Copyright &copy; 2016 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Annotations</a>
-        <dl>
-          <dt>Copyright &copy; 2013 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Annotations</a>
-        <dl>
-          <dt>Copyright &copy; 2013 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Coordinator Layout</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library core utils</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Cursor Adapter</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Custom View</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Document File</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Drawer Layout</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library fragment</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Interpolators</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library loader</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Local Broadcast Manager</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Print</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library Sliding Pane Layout</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support Library View Pager</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support RecyclerView</a>
-        <dl>
-          <dt>Copyright &copy; 2014 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Support VectorDrawable</a>
-        <dl>
-          <dt>Copyright &copy; 2015 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Tracing</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Android Tracing Runtime Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">AndroidX Preference</a>
-        <dl>
-          <dt>Copyright &copy; 2015 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">androidx.customview:poolingcontainer</a>
-        <dl>
-          <dt>Copyright &copy; 2021 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Annotation</a>
-        <dl>
-          <dt>Copyright &copy; 2013 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">AppCompat</a>
-        <dl>
-          <dt>Copyright &copy; 2011 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">AppCompat Resources</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">AutoValue Annotations</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Camera Lifecycle</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Camera Video</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Camera View</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Camera2</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">collections</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Collections Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">ConstraintLayout</a>
-        <dl>
-          <dt>Copyright &copy; 2022 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">ConstraintLayout Core</a>
-        <dl>
-          <dt>Copyright &copy; 2022 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Core</a>
-        <dl>
-          <dt>Copyright &copy; 2015 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Core Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">error-prone annotations</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Experimental annotation</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">firebase-annotations</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">firebase-components</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">firebase-encoders</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">firebase-encoders-json</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">flexbox-layout</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Google</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Fragment Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Futures</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Futures Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Gson</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Guava ListenableFuture only</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">javax.inject</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">JetBrains Java Annotations</a>
-        <dl>
-          <dt>Copyright &copy; 20xx JetBrains Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Jetpack WindowManager Library</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Kotlin Android Extensions Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Kotlin Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Kotlin Stdlib</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Kotlin Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Kotlin Stdlib Jdk7</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Kotlin Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Kotlin Stdlib Jdk8</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Kotlin Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">kotlinx-coroutines-android</a>
-        <dl>
-          <dt>Copyright &copy; 20xx JetBrains Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">kotlinx-coroutines-core</a>
-        <dl>
-          <dt>Copyright &copy; 20xx JetBrains Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle LiveData</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle LiveData Core</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle Process</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle Service</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle ViewModel</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle ViewModel</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle ViewModel</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle ViewModel Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle ViewModel with SavedState</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Lifecycle-Common</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">LiveData Core Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">LiveData Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Material Components for Android</a>
-        <dl>
-          <dt>Copyright &copy; 2015 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Parcelize Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Kotlin Team</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Profile Installer</a>
-        <dl>
-          <dt>Copyright &copy; 2021 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Room Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2019 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Room-Common</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Room-Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">RxAndroid</a>
-        <dl>
-          <dt>Copyright &copy; 20xx ReactiveX</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">RxJava</a>
-        <dl>
-          <dt>Copyright &copy; 2013 David Karnok</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Saved State</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">SavedState Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">SQLite</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">SQLite Framework Integration</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">tbruyelle/RxPermissions</a>
-        <dl>
-          <dt>Copyright &copy; 2015 Thomas Bruyelle</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">ToastCompat</a>
-        <dl>
-          <dt>Copyright &copy; 20xx drakeet</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">Transition</a>
-        <dl>
-          <dt>Copyright &copy; 2016 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">transport-api</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">transport-backend-cct</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">transport-runtime</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">VersionedParcelable</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">viewbinding</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">ViewPager2</a>
-        <dl>
-          <dt>Copyright &copy; 2017 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">WorkManager Kotlin Extensions</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">WorkManager Multiprocess</a>
-        <dl>
-          <dt>Copyright &copy; 2020 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">WorkManager Runtime</a>
-        <dl>
-          <dt>Copyright &copy; 2018 The Android Open Source Project</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1934118923">ZXing Core</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="1934118923"></a>
-    <pre>                                 Apache License
+
+BSD License
+https://chromium.googlesource.com/libyuv/libyuv/+/refs/heads/main/README.chromium
+
+Activity
+
+          Copyright © 2018 The Android Open Source Project
+
+Activity Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+Android App Startup Runtime
+
+          Copyright © 2020 The Android Open Source Project
+
+Android Arch-Common
+
+          Copyright © 2017 The Android Open Source Project
+
+Android Arch-Runtime
+
+          Copyright © 2017 The Android Open Source Project
+
+Android Emoji2 Compat
+
+          Copyright © 2017 The Android Open Source Project
+
+Android Emoji2 Compat view helpers
+
+          Copyright © 2017 The Android Open Source Project
+
+Android Multi-Dex Library
+
+          Copyright © 2013 The Android Open Source Project
+
+Android Preferences KTX
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Resource Inspection - Annotations
+
+          Copyright © 2021 The Android Open Source Project
+
+Android Support AnimatedVectorDrawable
+
+          Copyright © 2015 The Android Open Source Project
+
+Android Support CardView v7
+
+          Copyright © 2011 The Android Open Source Project
+
+Android Support DynamicAnimation
+
+          Copyright © 2017 The Android Open Source Project
+
+Android Support ExifInterface
+
+          Copyright © 2016 The Android Open Source Project
+
+Android Support Library Annotations
+
+          Copyright © 2013 The Android Open Source Project
+
+Android Support Library Annotations
+
+          Copyright © 2013 The Android Open Source Project
+
+Android Support Library Coordinator Layout
+
+          Copyright © 2011 The Android Open Source Project
+
+Android Support Library core utils
+
+          Copyright © 2011 The Android Open Source Project
+
+Android Support Library Cursor Adapter
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library Custom View
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library Document File
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library Drawer Layout
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library fragment
+
+          Copyright © 2011 The Android Open Source Project
+
+Android Support Library Interpolators
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library loader
+
+          Copyright © 2011 The Android Open Source Project
+
+Android Support Library Local Broadcast Manager
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library Print
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library Sliding Pane Layout
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support Library View Pager
+
+          Copyright © 2018 The Android Open Source Project
+
+Android Support RecyclerView
+
+          Copyright © 2014 The Android Open Source Project
+
+Android Support VectorDrawable
+
+          Copyright © 2015 The Android Open Source Project
+
+Android Tracing
+
+          Copyright © 2020 The Android Open Source Project
+
+Android Tracing Runtime Kotlin Extensions
+
+          Copyright © 2020 The Android Open Source Project
+
+AndroidX Preference
+
+          Copyright © 2015 The Android Open Source Project
+
+androidx.customview:poolingcontainer
+
+          Copyright © 2021 The Android Open Source Project
+
+Annotation
+
+          Copyright © 2013 The Android Open Source Project
+
+AppCompat
+
+          Copyright © 2011 The Android Open Source Project
+
+AppCompat Resources
+
+          Copyright © 2019 The Android Open Source Project
+
+AutoValue Annotations
+
+          Copyright © 20xx The original author or authors
+
+Camera Lifecycle
+
+          Copyright © 2019 The Android Open Source Project
+
+Camera Video
+
+          Copyright © 2020 The Android Open Source Project
+
+Camera View
+
+          Copyright © 2019 The Android Open Source Project
+
+Camera2
+
+          Copyright © 2019 The Android Open Source Project
+
+collections
+
+          Copyright © 2018 The Android Open Source Project
+
+Collections Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+ConstraintLayout
+
+          Copyright © 2022 The Android Open Source Project
+
+ConstraintLayout Core
+
+          Copyright © 2022 The Android Open Source Project
+
+Core
+
+          Copyright © 2015 The Android Open Source Project
+
+Core Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+error-prone annotations
+
+          Copyright © 20xx The original author or authors
+
+Experimental annotation
+
+          Copyright © 2019 The Android Open Source Project
+
+firebase-annotations
+
+          Copyright © 20xx The original author or authors
+
+firebase-components
+
+          Copyright © 20xx The original author or authors
+
+firebase-encoders
+
+          Copyright © 20xx The original author or authors
+
+firebase-encoders-json
+
+          Copyright © 20xx The original author or authors
+
+flexbox-layout
+
+          Copyright © 20xx Google
+
+Fragment Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+Futures
+
+          Copyright © 2018 The Android Open Source Project
+
+Futures Kotlin Extensions
+
+          Copyright © 2019 The Android Open Source Project
+
+Gson
+
+          Copyright © 20xx The original author or authors
+
+Guava ListenableFuture only
+
+          Copyright © 20xx The original author or authors
+
+javax.inject
+
+          Copyright © 20xx The original author or authors
+
+JetBrains Java Annotations
+
+          Copyright © 20xx JetBrains Team
+
+Jetpack WindowManager Library
+
+          Copyright © 2020 The Android Open Source Project
+
+Kotlin Android Extensions Runtime
+
+          Copyright © 20xx Kotlin Team
+
+Kotlin Stdlib
+
+          Copyright © 20xx Kotlin Team
+
+Kotlin Stdlib Jdk7
+
+          Copyright © 20xx Kotlin Team
+
+Kotlin Stdlib Jdk8
+
+          Copyright © 20xx Kotlin Team
+
+kotlinx-coroutines-android
+
+          Copyright © 20xx JetBrains Team
+
+kotlinx-coroutines-core
+
+          Copyright © 20xx JetBrains Team
+
+Lifecycle Kotlin Extensions
+
+          Copyright © 2019 The Android Open Source Project
+
+Lifecycle LiveData
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle LiveData Core
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle Process
+
+          Copyright © 2018 The Android Open Source Project
+
+Lifecycle Runtime
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle Runtime
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle Service
+
+          Copyright © 2018 The Android Open Source Project
+
+Lifecycle ViewModel
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle ViewModel
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle ViewModel
+
+          Copyright © 2017 The Android Open Source Project
+
+Lifecycle ViewModel Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+Lifecycle ViewModel with SavedState
+
+          Copyright © 2018 The Android Open Source Project
+
+Lifecycle-Common
+
+          Copyright © 2017 The Android Open Source Project
+
+LiveData Core Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+LiveData Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+Material Components for Android
+
+          Copyright © 2015 The Android Open Source Project
+
+Parcelize Runtime
+
+          Copyright © 20xx Kotlin Team
+
+Profile Installer
+
+          Copyright © 2021 The Android Open Source Project
+
+Room Kotlin Extensions
+
+          Copyright © 2019 The Android Open Source Project
+
+Room-Common
+
+          Copyright © 2017 The Android Open Source Project
+
+Room-Runtime
+
+          Copyright © 2017 The Android Open Source Project
+
+RxAndroid
+
+          Copyright © 20xx ReactiveX
+
+RxJava
+
+          Copyright © 2013 David Karnok
+
+Saved State
+
+          Copyright © 2018 The Android Open Source Project
+
+SavedState Kotlin Extensions
+
+          Copyright © 2020 The Android Open Source Project
+
+SQLite
+
+          Copyright © 2017 The Android Open Source Project
+
+SQLite Framework Integration
+
+          Copyright © 2017 The Android Open Source Project
+
+tbruyelle/RxPermissions
+
+          Copyright © 2015 Thomas Bruyelle
+
+ToastCompat
+
+          Copyright © 20xx drakeet
+
+Transition
+
+          Copyright © 2016 The Android Open Source Project
+
+transport-api
+
+          Copyright © 20xx The original author or authors
+
+transport-backend-cct
+
+          Copyright © 20xx The original author or authors
+
+transport-runtime
+
+          Copyright © 20xx The original author or authors
+
+VersionedParcelable
+
+          Copyright © 2018 The Android Open Source Project
+
+viewbinding
+
+          Copyright © 20xx The original author or authors
+
+ViewPager2
+
+          Copyright © 2017 The Android Open Source Project
+
+WorkManager Kotlin Extensions
+
+          Copyright © 2018 The Android Open Source Project
+
+WorkManager Multiprocess
+
+          Copyright © 2020 The Android Open Source Project
+
+WorkManager Runtime
+
+          Copyright © 2018 The Android Open Source Project
+
+ZXing Core
+
+          Copyright © 20xx The original author or authors
+
+                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -1086,19 +852,12 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-</pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#2134416733">MMKV</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Tencent Wechat, Inc.</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="2134416733"></a>
-    <pre>BSD 3-Clause License
+
+MMKV
+
+          Copyright © 20xx Tencent Wechat, Inc.
+
+BSD 3-Clause License
 
 Copyright (c) [year], [fullname]
 All rights reserved.
@@ -1127,137 +886,84 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#1121107629">image</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1121107629">play-services-base</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1121107629">play-services-basement</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1121107629">play-services-oss-licenses</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1121107629">play-services-tasks</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="1121107629"></a>
-    <pre>Android Software Development Kit License
-<a href="https://developer.android.com/studio/terms.html">https://developer.android.com/studio/terms.html</a></pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#-1837751947">barcode-scanning</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#-1837751947">barcode-scanning-common</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#-1837751947">common</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#-1837751947">play-services-mlkit-barcode-scanning</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#-1837751947">vision-common</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#-1837751947">vision-interfaces</a>
-        <dl>
-          <dt>Copyright &copy; 20xx The original author or authors</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="-1837751947"></a>
-    <pre>ML Kit Terms of Service
-<a href="https://developers.google.com/ml-kit/terms">https://developers.google.com/ml-kit/terms</a></pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#1258221018">editorkit</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Dmitrii Rubtsov</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1258221018">language-base</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Dmitrii Rubtsov</dt>
-          <dd></dd>
-        </dl>
-      </li>
-      <li><a href="#1258221018">language-json</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Dmitrii Rubtsov</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="1258221018"></a>
-    <pre>Apache 2.0 License
-<a href="https://github.com/massivemadness/EditorKit/blob/master/LICENSE">https://github.com/massivemadness/EditorKit/blob/master/LICENSE</a></pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#402152448">reactive-streams</a>
-        <dl>
-          <dt>Copyright &copy; 2014 Reactive Streams SIG</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="402152448"></a>
-    <pre>MIT-0
-<a href="https://spdx.org/licenses/MIT-0.html">https://spdx.org/licenses/MIT-0.html</a></pre>
-<br>
-    <hr>
-    <ul>
-      <li><a href="#1783810846">quickie-bundled</a>
-        <dl>
-          <dt>Copyright &copy; 20xx Thomas Wirth</dt>
-          <dd></dd>
-        </dl>
-      </li>
-    </ul>
-<a id="1783810846"></a>
-    <pre>MIT License
+
+image
+
+          Copyright © 20xx The original author or authors
+
+play-services-base
+
+          Copyright © 20xx The original author or authors
+
+play-services-basement
+
+          Copyright © 20xx The original author or authors
+
+play-services-oss-licenses
+
+          Copyright © 20xx The original author or authors
+
+play-services-tasks
+
+          Copyright © 20xx The original author or authors
+
+Android Software Development Kit License
+https://developer.android.com/studio/terms.html
+
+barcode-scanning
+
+          Copyright © 20xx The original author or authors
+
+barcode-scanning-common
+
+          Copyright © 20xx The original author or authors
+
+common
+
+          Copyright © 20xx The original author or authors
+
+play-services-mlkit-barcode-scanning
+
+          Copyright © 20xx The original author or authors
+
+vision-common
+
+          Copyright © 20xx The original author or authors
+
+vision-interfaces
+
+          Copyright © 20xx The original author or authors
+
+ML Kit Terms of Service
+https://developers.google.com/ml-kit/terms
+
+editorkit
+
+          Copyright © 20xx Dmitrii Rubtsov
+
+language-base
+
+          Copyright © 20xx Dmitrii Rubtsov
+
+language-json
+
+          Copyright © 20xx Dmitrii Rubtsov
+
+Apache 2.0 License
+https://github.com/massivemadness/EditorKit/blob/master/LICENSE
+
+reactive-streams
+
+          Copyright © 2014 Reactive Streams SIG
+
+MIT-0
+https://spdx.org/licenses/MIT-0.html
+
+quickie-bundled
+
+          Copyright © 20xx Thomas Wirth
+
+MIT License
 
 Copyright (c) [year] [fullname]
 
@@ -1278,10 +984,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-</pre>
-<br>
-    <hr>
-  <section id="huban-license-notice"><h2>Huban icons: Lucide / Feather</h2><pre>ISC License
+
+Huban icons: Lucide / Feather
+
+ISC License
 
 Copyright (c) 2026 Lucide Icons and Contributors
 
@@ -1324,6 +1030,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-</pre></section>
-</body>
-</html>
